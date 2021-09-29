@@ -45,6 +45,10 @@ function setText(element, text){
     document.getElementById(element).innerText = text;
 }
 
+function isEmailValid(mail){
+    return new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(mail);
+}
+
 function toggleMenu(){
     if(document.getElementById("main-menu-mobile").style.visibility == 'hidden'){
         document.getElementById("main-menu-mobile").style.visibility = 'visible';

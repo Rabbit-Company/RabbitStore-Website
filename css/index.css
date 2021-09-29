@@ -7,3 +7,19 @@ body{
     min-height: 500px;
     overflow-x: hidden;
 }
+
+h1{
+    color: rgba(209,213,219,1);
+    padding: 10px 0px;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+p{
+    color: rgba(156, 163, 175, 1);
+}
+
+ul{
+    color: rgba(156, 163, 175, 1);
+}
