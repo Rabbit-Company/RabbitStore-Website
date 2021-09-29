@@ -82,11 +82,3 @@ function fetchAppData(category){
     };
     xhr.send();
 }
-
-function searchFromApplications(search){
-
-    for(let i = 0; i < categories.length; i++){
-        
-    }
-
-}
