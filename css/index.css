@@ -23,3 +23,10 @@ p{
 ul{
     color: rgba(156, 163, 175, 1);
 }
+
+.changelog ul{
+    color: rgba(229, 231, 235, 0.7);
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 1em;
+}

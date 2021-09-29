@@ -48,7 +48,7 @@ for(let i = 0; i < get.length; i++){
                     html += "<div class='bg-gray-500 shadow overflow-hidden sm:rounded-md'><ul role='list' class='divide-y divide-gray-500'>";
                     let versionKeys = Object.keys(json[data[1]].os[osKeys[i]].versions);
                     for(let j = 0; j < versionKeys.length; j++){
-                        html += "<li><a id='download-version-" + versionKeys[j].replace(" ", "-") + "' href='#' class='block hover:bg-gray-500'><div class='flex items-center px-4 py-4 sm:px-6'><div class='min-w-0 flex-1 flex items-center'><p>" + versionKeys[j] + "</p></div><div>";
+                        html += "<li><a id='download-version-" + versionKeys[j].replace(" ", "-") + "' href='#' class='block hover:bg-gray-500'><div class='flex items-center px-4 py-4 sm:px-6'><div class='min-w-0 flex-1 flex items-center'><p class='text-gray-200'>" + versionKeys[j] + "</p></div><div>";
 
                         if(osKeys[i] == "Windows"){
                             html += "<svg id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' xmlns='http://www.w3.org/2000/svg' class='text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/>  <path d='M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9z' />  <line x1='12' y1='5' x2='12' y2='19' />  <line x1='4' y1='12' x2='20' y2='12' /></svg>";
@@ -60,7 +60,7 @@ for(let i = 0; i < get.length; i++){
                             if(typeof(json[data[1]].os[osKeys[i]].versions[versionKeys[j]].chromium) != 'undefined') html += "<svg id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' xmlns='http://www.w3.org/2000/svg' class='text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='12' cy='12' r='9' /><circle cx='12' cy='12' r='3' /><line x1='12' y1='9' x2='20.4' y2='9' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(120 12 12)' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(240 12 12)' /></svg>"
                         }
 
-                        html += "</div></div></a></li>";
+                        html += "</div></div><div class='changelog p-4 text-gray-200 border-t-2'>" + json[data[1]].os[osKeys[i]].versions[versionKeys[j]].changelog + "</div></a></li>";
                     }
                     html += "</ul></div>";
 
