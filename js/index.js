@@ -57,7 +57,7 @@ for(let i = 0; i < get.length; i++){
                         }else if(osKeys[i] == "Android"){
                             html += "<svg id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' xmlns='http://www.w3.org/2000/svg' class='text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='4' y1='10' x2='4' y2='16' /><line x1='20' y1='10' x2='20' y2='16' /><path d='M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0' /><line x1='8' y1='3' x2='9' y2='5' /><line x1='16' y1='3' x2='15' y2='5' /><line x1='9' y1='18' x2='9' y2='21' /><line x1='15' y1='18' x2='15' y2='21' /></svg>"
                         }else if(osKeys[i] == "Browser Extension"){
-                            html += "<svg id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' xmlns='http://www.w3.org/2000/svg' class='text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='12' cy='12' r='9' /><circle cx='12' cy='12' r='3' /><line x1='12' y1='9' x2='20.4' y2='9' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(120 12 12)' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(240 12 12)' /></svg>"
+                            if(typeof(json[data[1]].os[osKeys[i]].versions[versionKeys[j]].chromium) != 'undefined') html += "<svg id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' xmlns='http://www.w3.org/2000/svg' class='text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md' width='44' height='44' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='12' cy='12' r='9' /><circle cx='12' cy='12' r='3' /><line x1='12' y1='9' x2='20.4' y2='9' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(120 12 12)' /><line x1='12' y1='9' x2='20.4' y2='9' transform='rotate(240 12 12)' /></svg>"
                         }
 
                         html += "</div></div></a></li>";
@@ -140,6 +140,25 @@ for(let i = 0; i < get.length; i++){
                 break;
             }
         }
+    }else if(data[0] == "search"){
+        document.getElementById("category").innerHTML = decodeURIComponent(data[1].toUpperCase());
+        let html = "";
+        for(let i = 0; i < categories.length; i++){
+            let json = JSON.parse(localStorage.getItem(categories[i]));
+            for(let i = 0; i < Object.keys(json).length; i++){
+                let id = Object.keys(json)[i];
+
+                if(json[id].name.toLowerCase().startsWith(data[1].toLowerCase()) || id.toLowerCase().startsWith(data[1].toLowerCase())){
+                    html += "<li class='col-span-1 text-gray-300 rounded-lg shadow divide-y divide-gray-200 bg-gray-800'>";
+                    html += "<a href='?app=" + id + "'>";
+                    html += "<div class='w-full text-center justify-between p-6'>";
+                    html += "<img class='w-24 h-24 bg-gray-700 rounded-full mx-auto' src='" + json[id].icon + "' alt='" + json[id].name + "'>"
+                    html += "<h1 class='text-2xl mt-2'>" + json[id].name + "</h1>";
+                    html += "<span class='text-gray-500'>" + json[id].description.short + "</span></div></a></li>";
+                }
+            }
+        }
+        document.getElementById("app-list").innerHTML = html;
     }
 
 }

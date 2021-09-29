@@ -83,25 +83,10 @@ function fetchAppData(category){
     xhr.send();
 }
 
-function copyToClipboard(text){
-    let textArea = document.createElement("textarea");
-    textArea.value = text;
+function searchFromApplications(search){
 
-    textArea.style.top = 0;
-    textArea.style.left = 0;
-    textArea.style.position = "fixed";
+    for(let i = 0; i < categories.length; i++){
+        
+    }
 
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    document.execCommand('copy');
-
-    document.body.removeChild(textArea);
-}
-
-function getDate(date){
-    let local = new Date(date);
-    local.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-    return local.toJSON().slice(0, 10);
 }
