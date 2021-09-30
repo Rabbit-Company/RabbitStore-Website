@@ -73,6 +73,7 @@ function fetchAppData(category){
                 JSON.parse(xhr.responseText);
                 localStorage.setItem(category, xhr.responseText);
                 localStorage.setItem(category + "-time", Date.now());
+                location.reload();
             } catch (e) {
                 localStorage.setItem(category, "{}");
                 localStorage.setItem(category + "-time", 0);
