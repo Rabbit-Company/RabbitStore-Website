@@ -201,6 +201,22 @@ for(let i = 0; i < get.length; i++){
             }
         }
         document.getElementById("app-list").innerHTML = html;
+    }else{
+        document.getElementById("category").innerHTML = "APPLICATIONS";
+        let html = "";
+        for(let i = 0; i < categories.length; i++){
+            let json = JSON.parse(localStorage.getItem(categories[i]));
+            for(let i = 0; i < Object.keys(json).length; i++){
+                let id = Object.keys(json)[i];
+                html += "<li class='col-span-1 text-gray-300 rounded-lg shadow divide-y divide-gray-200 bg-gray-800'>";
+                html += "<a href='?app=" + id + "'>";
+                html += "<div class='w-full text-center justify-between p-6'>";
+                html += "<img class='w-24 h-24 bg-gray-700 rounded-full mx-auto' src='" + json[id].icon + "' alt='" + json[id].name + "'>"
+                html += "<h1 class='text-2xl mt-2'>" + json[id].name + "</h1>";
+                html += "<span class='text-gray-500'>" + json[id].description.short + "</span></div></a></li>";
+            }
+        }
+        document.getElementById("app-list").innerHTML = html;
     }
 
 }
@@ -211,4 +227,12 @@ document.getElementById("open-main-menu-btn").addEventListener('click', () => {
 
 document.getElementById("close-main-menu-btn").addEventListener('click', () => {
     toggleMenu();
+});
+
+document.getElementById("logo-desktop").addEventListener('click', () => {
+    window.location = window.location.origin;
+});
+
+document.getElementById("logo-phone").addEventListener('click', () => {
+    window.location = window.location.origin;
 });
