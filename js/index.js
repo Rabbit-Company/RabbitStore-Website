@@ -8,7 +8,7 @@ for(let i = 0; i < get.length; i++){
         document.getElementById("desktop-menu-" + data[1]).className = "bg-gray-900 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md";
         document.getElementById("mobile-menu-" + data[1]).className = "bg-gray-900 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md";
 
-        let json = JSON.parse(localStorage.getItem(data[1]));
+        let json = JSON.parse(localStorage.getItem(decodeURIComponent(data[1])));
         let html = "";
         for(let i = 0; i < Object.keys(json).length; i++){
             let id = Object.keys(json)[i];
