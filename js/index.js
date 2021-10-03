@@ -236,3 +236,7 @@ document.getElementById("logo-desktop").addEventListener('click', () => {
 document.getElementById("logo-phone").addEventListener('click', () => {
     window.location = window.location.origin;
 });
+
+document.getElementById("submit-application-btn").addEventListener('click', () => {
+    window.open("https://github.com/Rabbit-Company/RabbitStore-Server/issues/new?assignees=zigazajc007&labels=application+request&template=application-request.md&title=%5BApplication+Request%5D", "_blank");
+});
