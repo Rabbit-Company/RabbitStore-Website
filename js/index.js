@@ -21,9 +21,11 @@ for(let i = 0; i < get.length; i++){
         }
         document.getElementById("app-list").innerHTML = html;
     }else if(data[0] == "app"){
+        let appFound = false;
         for(let i = 0; i < categories.length; i++){
             let json = JSON.parse(localStorage.getItem(categories[i]));
             if(Object.keys(json).includes(data[1])){
+                appFound = true;
                 document.getElementById("category").innerHTML = json[data[1]].name + " <span class='inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800'>" + json[data[1]].license + "</span>";
 
                 let html = "";
@@ -182,15 +184,17 @@ for(let i = 0; i < get.length; i++){
                 break;
             }
         }
+        if(appFound == false) window.location = window.location.origin;
     }else if(data[0] == "search"){
-        document.getElementById("category").innerHTML = decodeURIComponent(data[1].toUpperCase());
+        let search = decodeURIComponent(data[1]).replace(/(<([^>]+)>)/gi, "").replace(/\+/g, " ");
+        document.getElementById("category").innerHTML = search.toUpperCase();
         let html = "";
         for(let i = 0; i < categories.length; i++){
             let json = JSON.parse(localStorage.getItem(categories[i]));
             for(let i = 0; i < Object.keys(json).length; i++){
                 let id = Object.keys(json)[i];
 
-                if(json[id].name.toLowerCase().startsWith(data[1].toLowerCase()) || id.toLowerCase().startsWith(data[1].toLowerCase())){
+                if(json[id].name.toLowerCase().startsWith(search.toLowerCase()) || id.toLowerCase().startsWith(search.toLowerCase())){
                     html += "<li class='col-span-1 text-gray-300 rounded-lg shadow divide-y divide-gray-200 bg-gray-800'>";
                     html += "<a href='?app=" + id + "'>";
                     html += "<div class='w-full text-center justify-between p-6'>";
