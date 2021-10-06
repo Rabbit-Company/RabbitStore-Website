@@ -23,7 +23,7 @@ for(let i = 0; i < categories.length; i++){
         continue;
     }
 
-    if(jsonTime + 86400000 < Date.now()){
+    if(jsonTime + 3600000 < Date.now()){
         fetchAppData(categories[i]);
         continue;
     }
