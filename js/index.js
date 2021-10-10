@@ -46,7 +46,7 @@ for(let i = 0; i < get.length; i++){
                     html += "<li><a id='download-" + osKeys[i].replace(" ", "-") + "' href='#' class='block hover:bg-gray-500'><div class='flex items-center px-4 py-4 sm:px-6'><div class='min-w-0 flex-1 flex items-center'><p>" + osKeys[i] + "</p></div><div><svg class='h-5 w-5 text-gray-400' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd' /></svg></div></div></a></li>";
                     html += "<li id='download-versions-" + osKeys[i].replace(" ", "-") + "' class='hidden'><div class='px-4 py-4 sm:px-6'><div class=''>";
 
-                    html += "<div class='bg-gray-500 shadow overflow-hidden sm:rounded-md'><ul role='list' class='divide-y divide-gray-500'>";
+                    html += "<div class='bg-gray-500 shadow overflow-hidden sm:rounded-md'><ul role='list' class='divide-y divide-gray-400'>";
                     let versionKeys = Object.keys(json[data[1]].os[osKeys[i]].versions);
                     for(let j = 0; j < versionKeys.length; j++){
                         html += "<li><a id='download-" + osKeys[i].replace(" ", "-") + "-version-" + versionKeys[j].replace(" ", "-") + "' href='#' class='block hover:bg-gray-500'><div class='flex items-center px-4 py-4 sm:px-6'><div class='min-w-0 flex-1 flex items-center'><p class='text-gray-200'>" + versionKeys[j] + "</p></div>";
