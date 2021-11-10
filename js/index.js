@@ -26,7 +26,8 @@ for(let i = 0; i < get.length; i++){
             let json = JSON.parse(localStorage.getItem(categories[i]));
             if(Object.keys(json).includes(data[1])){
                 appFound = true;
-                document.getElementById("category").innerHTML = json[data[1]].name + " <span class='inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800'>" + json[data[1]].license + "</span>";
+                let license = " <span class='inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800'>" + json[data[1]].license + "</span>";
+                document.getElementById("category").innerHTML = (typeof(json[data[1]].website) == 'string') ? "<a href='" + json[data[1]].website + "' class='text-blue-400' target='_blank'>" + json[data[1]].name + "</a>" + license : json[data[1]].name + license;
 
                 let html = "";
                 html += "<p class='text-gray-400'>" + json[data[1]].description.short + "</p>";
