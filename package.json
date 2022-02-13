@@ -1,0 +1,22 @@
+{
+  "name": "rabbitstore-website",
+  "version": "1.0.0",
+  "description": "Website for Rabbit Store (application store)",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./tailwind.css -o ./website/css/tailwind.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rabbit-Company/RabbitStore-Website.git"
+  },
+  "author": "Rabbit Company LLC",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Rabbit-Company/RabbitStore-Website/issues"
+  },
+  "homepage": "https://github.com/Rabbit-Company/RabbitStore-Website#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.22"
+  }
+}
