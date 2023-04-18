@@ -4,7 +4,7 @@
   "description": "Website for Rabbit Store (application store)",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./tailwind.css -o ./website/css/tailwind.min.css"
+    "build": "npx tailwindcss -i ./tailwind.css -o ./website/css/tailwind.min.css --minify"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Rabbit-Company/RabbitStore-Website#readme",
   "devDependencies": {
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.3.1"
   }
 }
